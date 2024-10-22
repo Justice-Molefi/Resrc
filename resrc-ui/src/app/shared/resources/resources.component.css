@@ -1,0 +1,40 @@
+.vote:hover{
+    cursor: pointer;
+    color: rgb(74, 74, 255);
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+.edit-icon, .delete-icon:hover{
+    cursor: pointer;
+}
+.modal-header{
+    border-bottom: none;
+}
+.modal-footer{
+    border-top: none;
+}
+
+.card-body{
+    color: var(--text-white);
+    background-color: var(--background);
+}
+.card-text{
+    font-weight: 300;
+}
+
+.action-bar{
+    border-top: 1px solid rgb(54, 54, 54);
+}
+.action-container{
+    display: flex;
+    border-radius: 3px;
+    background-color: red;
+    cursor: pointer;
+}
+.action-container:hover{
+    opacity: 0.8;
+}

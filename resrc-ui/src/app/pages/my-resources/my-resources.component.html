@@ -1,0 +1,38 @@
+<div class="container">
+    <app-nav-bar/>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addResourceModal">Add Resource</button>
+    </div>
+    <app-resources [renderActionBar]="true" (emitResource)="edit($event, resourceForm)"/>
+</div>
+
+<div class="modal fade" id="addResourceModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-end modal-fullscreen-half">
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Resource</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" (click)="resetForm(resourceForm)"></button>
+            </div>
+            <div class="modal-body">
+                <form #resourceForm="ngForm">
+                    <div class="mb-3">
+                        <label for="postTitle" class="form-label">Resource Title</label>
+                        <input type="text" class="form-control bg-transparent text-white" name="title" id="title" required ngModel #title="ngModel" [ngClass]="{'border-danger': title.invalid && title.touched}">
+                        <div *ngIf="title.invalid && title.touched">
+                            <div *ngIf="title.hasError('required')" class="text-danger">Please add Title</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postContent" class="form-label">Resource Content</label>
+                        <textarea class="form-control bg-transparent text-white" name="content" id="content" rows="7" required ngModel #description="ngModel" minlength="20" [ngClass]="{'border-danger' : description.invalid && description.touched}"></textarea>
+                        <div *ngIf="description.invalid && description.touched">
+                            <div *ngIf="description.hasError('required')" class="text-danger">Please add Description</div>
+                            <div *ngIf="description.hasError('minlength')" class="text-danger">Minimum description lenght is 20 characters</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="resourceForm.invalid">{{onEdit ? 'Update': 'Create'}}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

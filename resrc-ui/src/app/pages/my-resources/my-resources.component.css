@@ -1,0 +1,30 @@
+.modal-dialog.modal-dialog-end {
+    position: fixed; /* Keep the modal in a fixed position */
+    top: 0;
+    right: 0;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog.modal-dialog-end {
+    transform: translateX(0);
+}
+
+.modal-dialog.modal-fullscreen-half {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    height: 100%;
+    width: 50%;
+    margin: 0; 
+}
+
+.modal-content-full{
+    height: inherit;
+}
+
+.modal-content{
+    background: var(--background);
+    color: var(--text-white);
+    border-radius: 0 !important;
+}
